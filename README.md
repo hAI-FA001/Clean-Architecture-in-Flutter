@@ -1,7 +1,10 @@
 # Flutter Clean Architecture
 
 Learning Clean architecture by building a project in Flutter
-<a href="https://www.youtube.com/watch?v=7V_P6dovixg">Tutorial</a> followed
+
+<a href="https://www.youtube.com/watch?v=7V_P6dovixg">Tutorial</a> followed.
+
+<br><br>
 
 Core concepts:
  - Separate domain, presentation and data layers for each feature
