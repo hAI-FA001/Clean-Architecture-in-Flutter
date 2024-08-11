@@ -4,14 +4,14 @@ import 'package:project_learn_clean_arch/features/daily_news/domain/entities/art
 
 class ArticleModel extends ArticleEntity {
   const ArticleModel({
-    int? id,
-    String? author,
-    String? title,
-    String? description,
-    String? url,
-    String? urlToImage,
-    String? publishedAt,
-    String? content,
+    super.id,
+    super.author,
+    super.title,
+    super.description,
+    super.url,
+    super.urlToImage,
+    super.publishedAt,
+    super.content,
   });
 
   factory ArticleModel.fromJson(Map<String, dynamic> map) => ArticleModel(

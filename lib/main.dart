@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider<RemoteArticlesBloc>(
       create: (context) => sl()..add(const GetArticles()),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Daily News',
         theme: theme(),
         home: const DailyNews(),
       ),

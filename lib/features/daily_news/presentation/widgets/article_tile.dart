@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project_learn_clean_arch/features/daily_news/domain/entities/article.dart';
 
 class ArticleWidget extends StatelessWidget {
@@ -14,7 +13,7 @@ class ArticleWidget extends StatelessWidget {
     super.key,
     this.article,
     this.onArticlePressed,
-    this.isRemovable,
+    this.isRemovable = false,
     this.onRemove,
   });
 
