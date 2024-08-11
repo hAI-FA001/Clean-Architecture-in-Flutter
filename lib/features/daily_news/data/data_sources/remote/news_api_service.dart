@@ -11,7 +11,7 @@ abstract class NewsApiService {
 
   // tell retrofit to make a method which uses Dio to make a network call to an endpoint "/top-headlines" with multiple query params as provided
   @GET('/top-headlines')
-  Future<HttpResponse<List<ArticleModel>>> getNewsArticles(
+  Future<HttpResponse<ArticleResponseModel>> getNewsArticles(
       // API params
       {
     @Query('apiKey') String? apiKey,

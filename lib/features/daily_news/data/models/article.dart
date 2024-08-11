@@ -1,7 +1,21 @@
+import 'package:floor/floor.dart';
 import 'package:project_learn_clean_arch/features/daily_news/domain/entities/article.dart';
 
 // why use model? why not use entity? -> Domain layer must be independent, should not depend on DB, or whether we use JSON, XML, etc
 
+class ArticleResponseModel {
+  List<ArticleModel> articles;
+
+  ArticleResponseModel({required this.articles});
+
+  factory ArticleResponseModel.fromJson(Map<String, dynamic> map) =>
+      ArticleResponseModel(
+          articles: ((map['articles'] ?? []) as List<dynamic>)
+              .map((dynamic article) => ArticleModel.fromJson(article))
+              .toList());
+}
+
+@Entity(tableName: "T_article", primaryKeys: ['id'])
 class ArticleModel extends ArticleEntity {
   const ArticleModel({
     super.id,
