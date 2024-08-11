@@ -1,4 +1,5 @@
 import 'package:floor/floor.dart';
+import 'package:project_learn_clean_arch/core/constants/constants.dart';
 import 'package:project_learn_clean_arch/features/daily_news/domain/entities/article.dart';
 
 // why use model? why not use entity? -> Domain layer must be independent, should not depend on DB, or whether we use JSON, XML, etc
@@ -33,7 +34,8 @@ class ArticleModel extends ArticleEntity {
         title: map['title'] ?? '',
         description: map['description'] ?? '',
         url: map['url'] ?? '',
-        urlToImage: map['urlToImage'] ?? '',
+        urlToImage:
+            (map['urlToImage'] ?? '') != '' ? map['urlToImage'] : kDefaultImage,
         publishedAt: map['publishedAt'] ?? '',
         content: map['content'] ?? '',
       );
