@@ -8,6 +8,7 @@ import 'package:project_learn_clean_arch/features/daily_news/presentation/pages/
 import 'package:project_learn_clean_arch/injection_container.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
   await initializeDependencies();
   runApp(const MyApp());
