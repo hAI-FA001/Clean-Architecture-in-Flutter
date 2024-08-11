@@ -1,16 +1,9 @@
-# project_learn_clean_arch
+# Flutter Clean Architecture
 
-Learning Clean architecture by building a project
+Learning Clean architecture by building a project in Flutter
+<a href="https://www.youtube.com/watch?v=7V_P6dovixg">Tutorial</a> followed
 
-## Getting Started
+Core concepts:
+ - Separate domain, presentation and data layers for each feature
+ - Keep domain independent from implementation (e.g. ArticleModel contains actual functionality, while ArticleEntity is the domain entity that is used where you want independence from the data layer)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
