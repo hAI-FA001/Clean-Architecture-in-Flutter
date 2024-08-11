@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,8 +45,14 @@ class DailyNews extends StatelessWidget {
           if (state is RemoteArticlesLoading) {
             return const Center(child: CupertinoActivityIndicator());
           } else if (state is RemoteArticlesError) {
-            return const Center(
-              child: Icon(Icons.refresh),
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.refresh),
+                  Text((state.error!.error as SocketException).message),
+                ],
+              ),
             );
           } else if (state is RemoteArticlesDone) {
             return ListView.builder(
