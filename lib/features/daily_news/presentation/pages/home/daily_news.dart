@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_learn_clean_arch/features/daily_news/domain/entities/article.dart';
 import 'package:project_learn_clean_arch/features/daily_news/presentation/bloc/article/remote/remote_article_bloc.dart';
 import 'package:project_learn_clean_arch/features/daily_news/presentation/bloc/article/remote/remote_article_state.dart';
 import 'package:project_learn_clean_arch/features/daily_news/presentation/widgets/article_tile.dart';
@@ -19,7 +20,9 @@ class DailyNews extends StatelessWidget {
   _buildAppbar() => AppBar(
         title: const Text(
           'Daily News',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+            color: Colors.black,
+          ),
         ),
       );
 
@@ -36,6 +39,8 @@ class DailyNews extends StatelessWidget {
               itemCount: state.articles!.length,
               itemBuilder: (context, idx) => ArticleWidget(
                 article: state.articles![idx],
+                onArticlePressed: (article) =>
+                    _onArticlePressed(context, article),
               ),
             );
           } else {
@@ -43,4 +48,7 @@ class DailyNews extends StatelessWidget {
           }
         },
       );
+
+  _onArticlePressed(BuildContext context, ArticleEntity article) =>
+      Navigator.pushNamed(context, '/ArticleDetails', arguments: article);
 }
