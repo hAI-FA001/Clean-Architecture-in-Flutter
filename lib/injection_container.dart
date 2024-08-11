@@ -8,6 +8,7 @@ import 'package:project_learn_clean_arch/features/daily_news/domain/usecases/get
 import 'package:project_learn_clean_arch/features/daily_news/domain/usecases/get_saved_article.dart';
 import 'package:project_learn_clean_arch/features/daily_news/domain/usecases/remove_article.dart';
 import 'package:project_learn_clean_arch/features/daily_news/domain/usecases/save_article.dart';
+import 'package:project_learn_clean_arch/features/daily_news/presentation/bloc/article/local/local_article_bloc.dart';
 import 'package:project_learn_clean_arch/features/daily_news/presentation/bloc/article/remote/remote_article_bloc.dart';
 
 // service locator pattern
@@ -28,10 +29,13 @@ Future<void> initializeDependencies() async {
 
   // UseCases
   sl.registerSingleton<GetArticleUseCase>(GetArticleUseCase(sl()));
-  sl.registerSingleton<GetSavedArticle>(GetSavedArticle(sl()));
-  sl.registerSingleton<SaveArticle>(SaveArticle(sl()));
-  sl.registerSingleton<RemoveArticle>(RemoveArticle(sl()));
+  sl.registerSingleton<GetSavedArticleUseCase>(GetSavedArticleUseCase(sl()));
+  sl.registerSingleton<SaveArticleUseCase>(SaveArticleUseCase(sl()));
+  sl.registerSingleton<RemoveArticleUseCase>(RemoveArticleUseCase(sl()));
 
   // Blocs
   sl.registerFactory<RemoteArticlesBloc>(() => RemoteArticlesBloc(sl()));
+  sl.registerFactory<LocalArticleBloc>(
+    () => LocalArticleBloc(sl(), sl(), sl()),
+  );
 }
