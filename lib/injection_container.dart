@@ -9,7 +9,7 @@ import 'package:project_learn_clean_arch/features/daily_news/presentation/bloc/a
 // service locator pattern
 final sl = GetIt.instance;
 
-// for registering all classes and contracts before run app is called
+// for registering all classes and contracts before runApp is called
 Future<void> initializeDependencies() async {
   // Dio
   sl.registerSingleton<Dio>(Dio());
